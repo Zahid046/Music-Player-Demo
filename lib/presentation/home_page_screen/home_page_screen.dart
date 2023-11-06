@@ -69,7 +69,7 @@ class HomePageScreen extends GetWidget<HomePageController> {
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
       centerTitle: true,
-      title: AppbarTitle(text: "lbl_dashboard".tr),
+      title: AppBarTitle(text: "lbl_dashboard".tr),
       actions: [
         AppBarTrailingImage(
           imagePath: ImageConstant.imgMenu,
@@ -127,7 +127,7 @@ class HomePageScreen extends GetWidget<HomePageController> {
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
       case BottomBarEnum.Home:
-        return "/";
+        return AppRoutes.homePageScreen;
       case BottomBarEnum.Top:
         return AppRoutes.topPlaylistsScreen;
       case BottomBarEnum.Favorites:

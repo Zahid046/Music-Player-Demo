@@ -45,14 +45,14 @@ class SettingsScreen extends GetWidget<SettingsController> {
     return CustomAppBar(
         height: 53.v,
         leadingWidth: 48.h,
-        leading: AppbarLeadingImage(
+        leading: AppBarLeadingImage(
             imagePath: ImageConstant.imgArrowLeft,
             margin: EdgeInsets.only(left: 24.h, top: 14.v, bottom: 15.v),
             onTap: () {
               onTapArrowLeft();
             }),
         centerTitle: true,
-        title: AppbarTitle(text: "lbl_equalizer".tr),
+        title: AppBarTitle(text: "lbl_equalizer".tr),
         actions: [AppBarTrailingImage(imagePath: ImageConstant.imgClose, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))]);
   }
 

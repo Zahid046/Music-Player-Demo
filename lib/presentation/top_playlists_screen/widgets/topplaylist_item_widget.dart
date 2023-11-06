@@ -5,16 +5,16 @@ import 'package:zahid_mahmud_s_application1/core/app_export.dart';
 import 'package:zahid_mahmud_s_application1/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
-class TopplaylistItemWidget extends StatelessWidget {
-  TopplaylistItemWidget(
-    this.topplaylistItemModelObj, {
+class TopPlayListItemWidget extends StatelessWidget {
+  TopPlayListItemWidget(
+    this.topPlayListItemModelObj, {
     Key? key,
     this.onTapImgRenaissance,
   }) : super(
           key: key,
         );
 
-  TopplaylistItemModel topplaylistItemModelObj;
+  TopPlayListItemModel topPlayListItemModelObj;
 
   var controller = Get.find<TopPlaylistsController>();
 
@@ -30,7 +30,7 @@ class TopplaylistItemWidget extends StatelessWidget {
         children: [
           Obx(
             () => CustomImageView(
-              imagePath: topplaylistItemModelObj.renaissance!.value,
+              imagePath: topPlayListItemModelObj.renaissance!.value,
               height: 181.v,
               width: 342.h,
               radius: BorderRadius.circular(
@@ -78,29 +78,27 @@ class TopplaylistItemWidget extends StatelessWidget {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(
-                              top: 86.v,
+                              top: 72.v,
                               bottom: 4.v,
                             ),
                             child: Column(
                               children: [
                                 Obx(
                                   () => Text(
-                                    topplaylistItemModelObj.renaissance1!.value,
+                                    topPlayListItemModelObj.renaissance1!.value,
                                     style: theme.textTheme.headlineMedium,
                                   ),
                                 ),
-                                SizedBox(height: 6.v),
+                                SizedBox(height: 4.v),
                                 Container(
                                   width: 156.h,
                                   margin: EdgeInsets.only(right: 3.h),
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Obx(
                                         () => Text(
-                                          topplaylistItemModelObj
-                                              .tracksCounter!.value,
+                                          topPlayListItemModelObj.tracksCounter!.value,
                                           style: theme.textTheme.bodyLarge,
                                         ),
                                       ),
@@ -114,9 +112,7 @@ class TopplaylistItemWidget extends StatelessWidget {
                                             bottom: 6.v,
                                           ),
                                           decoration: BoxDecoration(
-                                            color: theme
-                                                .colorScheme.onPrimaryContainer
-                                                .withOpacity(0.58),
+                                            color: theme.colorScheme.onPrimaryContainer.withOpacity(0.58),
                                             borderRadius: BorderRadius.circular(
                                               1.h,
                                             ),
@@ -125,8 +121,7 @@ class TopplaylistItemWidget extends StatelessWidget {
                                       ),
                                       Obx(
                                         () => Text(
-                                          topplaylistItemModelObj
-                                              .duration!.value,
+                                          topPlayListItemModelObj.duration!.value,
                                           style: theme.textTheme.bodyLarge,
                                         ),
                                       ),

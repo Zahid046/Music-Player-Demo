@@ -16,47 +16,52 @@ class LoginScreen extends GetWidget<LoginController> {
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
     return SafeArea(
-        child: Scaffold(
-            resizeToAvoidBottomInset: false,
-            backgroundColor: theme.colorScheme.onError,
-            body: Form(
-                key: _formKey,
-                child: Container(
-                    width: double.maxFinite,
-                    padding:
-                        EdgeInsets.only(left: 24.h, right: 24.h, bottom: 152.v),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Spacer(),
-                          Text("lbl_sign_in".tr,
-                              style: theme.textTheme.headlineMedium),
-                          SizedBox(height: 31.v),
-                          _buildEmail(),
-                          SizedBox(height: 16.v),
-                          _buildPassword(),
-                          SizedBox(height: 24.v),
-                          _buildSignInButton(),
-                          SizedBox(height: 40.v),
-                          Text("msg_forgot_your_login".tr,
-                              style:
-                                  CustomTextStyles.bodyMediumOnPrimaryContainer)
-                        ]))),
-            bottomNavigationBar: _buildCreateAccountButton()));
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: theme.colorScheme.onError,
+        body: Form(
+          key: _formKey,
+          child: Container(
+            width: double.maxFinite,
+            padding: EdgeInsets.only(left: 24.h, right: 24.h, bottom: 152.v),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Spacer(),
+                Text("lbl_sign_in".tr, style: theme.textTheme.headlineMedium),
+                SizedBox(height: 31.v),
+                _buildEmail(),
+                SizedBox(height: 16.v),
+                _buildPassword(),
+                SizedBox(height: 24.v),
+                _buildSignInButton(),
+                SizedBox(height: 40.v),
+                Text(
+                  "msg_forgot_your_login".tr,
+                  style: CustomTextStyles.bodyMediumOnPrimaryContainer,
+                ),
+              ],
+            ),
+          ),
+        ),
+        bottomNavigationBar: _buildCreateAccountButton(),
+      ),
+    );
   }
 
   /// Section Widget
   Widget _buildEmail() {
     return CustomTextFormField(
-        controller: controller.emailController,
-        hintText: "lbl_email".tr,
-        textInputType: TextInputType.emailAddress,
-        validator: (value) {
-          if (value == null || (!isValidEmail(value, isRequired: true))) {
-            return "err_msg_please_enter_valid_email".tr;
-          }
-          return null;
-        });
+      controller: controller.emailController,
+      hintText: "lbl_email".tr,
+      textInputType: TextInputType.emailAddress,
+      validator: (value) {
+        if (value == null || (!isValidEmail(value, isRequired: true))) {
+          return "err_msg_please_enter_valid_email".tr;
+        }
+        return null;
+      },
+    );
   }
 
   /// Section Widget
@@ -78,15 +83,17 @@ class LoginScreen extends GetWidget<LoginController> {
   /// Section Widget
   Widget _buildSignInButton() {
     return CustomElevatedButton(
-        text: "lbl_sign_in2".tr,
-        buttonStyle: CustomButtonStyles.fillOnPrimaryContainer,
-        buttonTextStyle: CustomTextStyles.bodyLargeBlack900);
+      text: "lbl_sign_in2".tr,
+      buttonStyle: CustomButtonStyles.fillOnPrimaryContainer,
+      buttonTextStyle: CustomTextStyles.bodyLargeBlack900,
+    );
   }
 
   /// Section Widget
   Widget _buildCreateAccountButton() {
     return CustomOutlinedButton(
-        text: "lbl_create_account".tr,
-        margin: EdgeInsets.only(left: 24.h, right: 24.h, bottom: 40.v));
+      text: "lbl_create_account".tr,
+      margin: EdgeInsets.only(left: 24.h, right: 24.h, bottom: 40.v),
+    );
   }
 }

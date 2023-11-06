@@ -30,14 +30,14 @@ class ListScreen extends GetWidget<ListController> {
     return CustomAppBar(
         height: 53.v,
         leadingWidth: 48.h,
-        leading: AppbarLeadingImage(
+        leading: AppBarLeadingImage(
             imagePath: ImageConstant.imgArrowLeft,
             margin: EdgeInsets.only(left: 24.h, top: 14.v, bottom: 15.v),
             onTap: () {
               onTapArrowLeft();
             }),
         centerTitle: true,
-        title: AppbarTitle(text: "lbl_top_playlists".tr),
+        title: AppBarTitle(text: "lbl_top_playlists".tr),
         actions: [AppBarTrailingImage(imagePath: ImageConstant.imgMenu, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))]);
   }
 

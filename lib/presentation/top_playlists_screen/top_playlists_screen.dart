@@ -17,60 +17,78 @@ class TopPlaylistsScreen extends GetWidget<TopPlaylistsController> {
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
     return SafeArea(
-        child: Scaffold(
-            appBar: _buildAppBar(),
-            body: SizedBox(width: double.maxFinite, child: Column(children: [SizedBox(height: 20.v), _buildTopPlaylist()])),
-            bottomNavigationBar: _buildBottomBar()));
+      child: Scaffold(
+        appBar: _buildAppBar(),
+        body: SizedBox(width: double.maxFinite, child: Column(children: [SizedBox(height: 20.v), _buildTopPlaylist()])),
+        bottomNavigationBar: _buildBottomBar(),
+      ),
+    );
   }
 
   /// Section Widget
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
-        height: 53.v,
-        leadingWidth: 48.h,
-        leading: AppbarLeadingImage(
-            imagePath: ImageConstant.imgArrowLeft,
-            margin: EdgeInsets.only(left: 24.h, top: 14.v, bottom: 15.v),
-            onTap: () {
-              onTapArrowLeft();
-            }),
-        centerTitle: true,
-        title: AppbarTitle(text: "lbl_top_playlists".tr),
-        actions: [AppBarTrailingImage(imagePath: ImageConstant.imgMenu, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))]);
+      height: 53.v,
+      leadingWidth: 48.h,
+      leading: AppBarLeadingImage(
+          imagePath: ImageConstant.imgArrowLeft,
+          margin: EdgeInsets.only(left: 24.h, top: 14.v, bottom: 15.v),
+          onTap: () {
+            onTapArrowLeft();
+          }),
+      centerTitle: true,
+      title: AppBarTitle(text: "lbl_top_playlists".tr),
+      actions: [
+        AppBarTrailingImage(
+          imagePath: ImageConstant.imgMenu,
+          margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v),
+        ),
+      ],
+    );
   }
 
   /// Section Widget
   Widget _buildTopPlaylist() {
     return Expanded(
-        child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.h),
-            child: Obx(() => ListView.separated(
-                physics: BouncingScrollPhysics(),
-                shrinkWrap: true,
-                separatorBuilder: (context, index) {
-                  return SizedBox(height: 24.v);
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24.h),
+        child: Obx(
+          () => ListView.separated(
+            physics: BouncingScrollPhysics(),
+            shrinkWrap: true,
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 24.v);
+            },
+            itemCount: controller.topPlaylistsModelObj.value.topPlayListItemList.value.length,
+            itemBuilder: (context, index) {
+              TopPlayListItemModel model = controller.topPlaylistsModelObj.value.topPlayListItemList.value[index];
+              return TopPlayListItemWidget(
+                model,
+                onTapImgRenaissance: () {
+                  onTapImgRenaissance();
                 },
-                itemCount: controller.topPlaylistsModelObj.value.topplaylistItemList.value.length,
-                itemBuilder: (context, index) {
-                  TopplaylistItemModel model = controller.topPlaylistsModelObj.value.topplaylistItemList.value[index];
-                  return TopplaylistItemWidget(model, onTapImgRenaissance: () {
-                    onTapImgRenaissance();
-                  });
-                }))));
+              );
+            },
+          ),
+        ),
+      ),
+    );
   }
 
   /// Section Widget
   Widget _buildBottomBar() {
-    return CustomBottomBar(onChanged: (BottomBarEnum type) {
-      Get.toNamed(getCurrentRoute(type), id: 1);
-    });
+    return CustomBottomBar(
+      onChanged: (BottomBarEnum type) {
+        Get.toNamed(getCurrentRoute(type));
+      },
+    );
   }
 
   ///Handling route based on bottom click actions
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
       case BottomBarEnum.Home:
-        return "/";
+        return AppRoutes.homePageScreen;
       case BottomBarEnum.Top:
         return AppRoutes.topPlaylistsScreen;
       case BottomBarEnum.Favorites:

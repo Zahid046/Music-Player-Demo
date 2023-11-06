@@ -37,14 +37,14 @@ class ProfileScreen extends GetWidget<ProfileController> {
   PreferredSizeWidget _buildAppBar() {
     return CustomAppBar(
         leadingWidth: 48.h,
-        leading: AppbarLeadingImage(
+        leading: AppBarLeadingImage(
             imagePath: ImageConstant.imgArrowLeft,
             margin: EdgeInsets.only(left: 24.h, top: 14.v, bottom: 13.v),
             onTap: () {
               onTapArrowLeft();
             }),
         centerTitle: true,
-        title: AppbarTitle(text: "lbl_profile".tr),
+        title: AppBarTitle(text: "lbl_profile".tr),
         actions: [AppBarTrailingImage(imagePath: ImageConstant.imgClose, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 13.v))]);
   }
 

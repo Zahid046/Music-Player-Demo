@@ -1,8 +1,8 @@
 import '../../../core/app_export.dart';
 
 /// This class is used in the [topplaylist_item_widget] screen.
-class TopplaylistItemModel {
-  TopplaylistItemModel({
+class TopPlayListItemModel {
+  TopPlayListItemModel({
     this.renaissance,
     this.renaissance1,
     this.tracksCounter,
