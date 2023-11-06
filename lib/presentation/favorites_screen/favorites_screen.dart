@@ -23,11 +23,7 @@ class FavoritesScreen extends GetWidget<FavoritesController> {
             body: Container(
                 width: double.maxFinite,
                 padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 22.v),
-                child: Column(children: [
-                  _buildPlaylist(),
-                  SizedBox(height: 24.v),
-                  _buildFavorites()
-                ])),
+                child: Column(children: [_buildPlaylist(), SizedBox(height: 24.v), _buildFavorites()])),
             bottomNavigationBar: _buildBottomBar()));
   }
 
@@ -43,11 +39,7 @@ class FavoritesScreen extends GetWidget<FavoritesController> {
             }),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_favourites".tr),
-        actions: [
-          AppbarTrailingImage(
-              imagePath: ImageConstant.imgMenu,
-              margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 13.v))
-        ]);
+        actions: [AppBarTrailingImage(imagePath: ImageConstant.imgMenu, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 13.v))]);
   }
 
   /// Section Widget
@@ -57,38 +49,22 @@ class FavoritesScreen extends GetWidget<FavoritesController> {
         width: 342.h,
         child: Stack(alignment: Alignment.center, children: [
           CustomImageView(
-              imagePath: ImageConstant.imgPlaylistBackground2,
-              height: 181.v,
-              width: 342.h,
-              radius: BorderRadius.circular(8.h),
-              alignment: Alignment.center),
+              imagePath: ImageConstant.imgPlaylistBackground2, height: 181.v, width: 342.h, radius: BorderRadius.circular(8.h), alignment: Alignment.center),
           Align(
               alignment: Alignment.center,
               child: Container(
                   padding: EdgeInsets.all(16.h),
-                  decoration: AppDecoration.gradientBlackToBlack.copyWith(
-                      borderRadius: BorderRadiusStyle.customBorderBL8),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.only(top: 88.v, bottom: 4.v),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("lbl_did_you_like_it".tr,
-                                      style: theme.textTheme.headlineMedium),
-                                  SizedBox(height: 3.v),
-                                  Text("lbl_843_tracks".tr,
-                                      style: theme.textTheme.bodyLarge)
-                                ])),
-                        CustomImageView(
-                            imagePath: ImageConstant.imgPlay,
-                            height: 50.adaptSize,
-                            width: 50.adaptSize,
-                            margin: EdgeInsets.only(top: 99.v))
-                      ])))
+                  decoration: AppDecoration.gradientBlackToBlack.copyWith(borderRadius: BorderRadiusStyle.customBorderBL8),
+                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.end, children: [
+                    Padding(
+                        padding: EdgeInsets.only(top: 88.v, bottom: 4.v),
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text("lbl_did_you_like_it".tr, style: theme.textTheme.headlineMedium),
+                          SizedBox(height: 3.v),
+                          Text("lbl_843_tracks".tr, style: theme.textTheme.bodyLarge)
+                        ])),
+                    CustomImageView(imagePath: ImageConstant.imgPlay, height: 50.adaptSize, width: 50.adaptSize, margin: EdgeInsets.only(top: 99.v))
+                  ])))
         ]));
   }
 
@@ -101,11 +77,9 @@ class FavoritesScreen extends GetWidget<FavoritesController> {
             separatorBuilder: (context, index) {
               return SizedBox(height: 8.v);
             },
-            itemCount: controller
-                .favoritesModelObj.value.favoritesItemList.value.length,
+            itemCount: controller.favoritesModelObj.value.favoritesItemList.value.length,
             itemBuilder: (context, index) {
-              FavoritesItemModel model = controller
-                  .favoritesModelObj.value.favoritesItemList.value[index];
+              FavoritesItemModel model = controller.favoritesModelObj.value.favoritesItemList.value[index];
               return FavoritesItemWidget(model, onTapFavouritesOption: () {
                 onTapFavouritesOption();
               });

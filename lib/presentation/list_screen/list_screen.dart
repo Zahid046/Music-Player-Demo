@@ -21,14 +21,8 @@ class ListScreen extends GetWidget<ListController> {
             body: Container(
                 width: double.maxFinite,
                 padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 10.v),
-                child: Column(children: [
-                  _buildMusicDetails(),
-                  SizedBox(height: 18.v),
-                  _buildActions(),
-                  Spacer(flex: 39),
-                  _buildSongList(),
-                  Spacer(flex: 60)
-                ]))));
+                child:
+                    Column(children: [_buildMusicDetails(), SizedBox(height: 18.v), _buildActions(), Spacer(flex: 39), _buildSongList(), Spacer(flex: 60)]))));
   }
 
   /// Section Widget
@@ -44,28 +38,19 @@ class ListScreen extends GetWidget<ListController> {
             }),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_top_playlists".tr),
-        actions: [
-          AppbarTrailingImage(
-              imagePath: ImageConstant.imgMenu,
-              margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))
-        ]);
+        actions: [AppBarTrailingImage(imagePath: ImageConstant.imgMenu, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))]);
   }
 
   /// Section Widget
   Widget _buildMusicDetails() {
     return Column(children: [
-      CustomImageView(
-          imagePath: ImageConstant.imgPlaylistThumbnail,
-          height: 136.adaptSize,
-          width: 136.adaptSize,
-          radius: BorderRadius.circular(68.h)),
+      CustomImageView(imagePath: ImageConstant.imgPlaylistThumbnail, height: 136.adaptSize, width: 136.adaptSize, radius: BorderRadius.circular(68.h)),
       SizedBox(height: 7.v),
       GestureDetector(
           onTap: () {
             onTapTxtRenaissance();
           },
-          child: Text("lbl_renaissance".tr,
-              style: CustomTextStyles.headlineSmallMedium)),
+          child: Text("lbl_renaissance".tr, style: CustomTextStyles.headlineSmallMedium)),
       SizedBox(height: 10.v),
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text("lbl_843_tracks".tr, style: theme.textTheme.bodyLarge),
@@ -75,13 +60,8 @@ class ListScreen extends GetWidget<ListController> {
                 height: 3.adaptSize,
                 width: 3.adaptSize,
                 margin: EdgeInsets.only(left: 4.h, top: 9.v, bottom: 6.v),
-                decoration: BoxDecoration(
-                    color:
-                        theme.colorScheme.onPrimaryContainer.withOpacity(0.58),
-                    borderRadius: BorderRadius.circular(1.h)))),
-        Padding(
-            padding: EdgeInsets.only(left: 5.h),
-            child: Text("lbl_23_hours".tr, style: theme.textTheme.bodyLarge))
+                decoration: BoxDecoration(color: theme.colorScheme.onPrimaryContainer.withOpacity(0.58), borderRadius: BorderRadius.circular(1.h)))),
+        Padding(padding: EdgeInsets.only(left: 5.h), child: Text("lbl_23_hours".tr, style: theme.textTheme.bodyLarge))
       ])
     ]);
   }
@@ -97,11 +77,7 @@ class ListScreen extends GetWidget<ListController> {
               padding: EdgeInsets.all(8.h),
               decoration: IconButtonStyleHelper.fillOnPrimaryContainerTL19,
               child: CustomImageView(imagePath: ImageConstant.imgReply))),
-      CustomImageView(
-          imagePath: ImageConstant.imgPlayOnprimarycontainer,
-          height: 69.adaptSize,
-          width: 69.adaptSize,
-          margin: EdgeInsets.only(left: 26.h)),
+      CustomImageView(imagePath: ImageConstant.imgPlayOnprimarycontainer, height: 69.adaptSize, width: 69.adaptSize, margin: EdgeInsets.only(left: 26.h)),
       Padding(
           padding: EdgeInsets.only(left: 26.h, top: 16.v, bottom: 15.v),
           child: CustomIconButton(
@@ -109,8 +85,7 @@ class ListScreen extends GetWidget<ListController> {
               width: 38.adaptSize,
               padding: EdgeInsets.all(7.h),
               decoration: IconButtonStyleHelper.fillOnPrimaryContainerTL19,
-              child: CustomImageView(
-                  imagePath: ImageConstant.imgBookmarkOnprimarycontainer)))
+              child: CustomImageView(imagePath: ImageConstant.imgBookmarkOnprimarycontainer)))
     ]);
   }
 
@@ -124,8 +99,7 @@ class ListScreen extends GetWidget<ListController> {
         },
         itemCount: controller.listModelObj.value.songlistItemList.value.length,
         itemBuilder: (context, index) {
-          SonglistItemModel model =
-              controller.listModelObj.value.songlistItemList.value[index];
+          SonglistItemModel model = controller.listModelObj.value.songlistItemList.value[index];
           return SonglistItemWidget(model);
         }));
   }

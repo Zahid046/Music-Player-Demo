@@ -4,8 +4,8 @@ import 'models/playlist_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:zahid_mahmud_s_application1/core/app_export.dart';
 
-class PlaylistBottomsheet extends StatelessWidget {
-  PlaylistBottomsheet(
+class PlayListBottomSheet extends StatelessWidget {
+  PlayListBottomSheet(
     this.controller, {
     Key? key,
   }) : super(
@@ -84,11 +84,9 @@ class PlaylistBottomsheet extends StatelessWidget {
               height: 16.v,
             );
           },
-          itemCount:
-              controller.playlistModelObj.value.playlistItemList.value.length,
+          itemCount: controller.playlistModelObj.value.playlistItemList.value.length,
           itemBuilder: (context, index) {
-            PlaylistItemModel model =
-                controller.playlistModelObj.value.playlistItemList.value[index];
+            PlaylistItemModel model = controller.playlistModelObj.value.playlistItemList.value[index];
             return PlaylistItemWidget(
               model,
             );

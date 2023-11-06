@@ -21,11 +21,7 @@ class ArtistScreen extends GetWidget<ArtistController> {
             body: Container(
                 width: double.maxFinite,
                 padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 28.v),
-                child: Column(children: [
-                  _buildRenaissanceColumn(),
-                  SizedBox(height: 43.v),
-                  _buildRenaissanceList()
-                ]))));
+                child: Column(children: [_buildRenaissanceColumn(), SizedBox(height: 43.v), _buildRenaissanceList()]))));
   }
 
   /// Section Widget
@@ -40,21 +36,13 @@ class ArtistScreen extends GetWidget<ArtistController> {
             }),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_renaissance".tr),
-        actions: [
-          AppbarTrailingImage(
-              imagePath: ImageConstant.imgMenu,
-              margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 13.v))
-        ]);
+        actions: [AppBarTrailingImage(imagePath: ImageConstant.imgMenu, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 13.v))]);
   }
 
   /// Section Widget
   Widget _buildRenaissanceColumn() {
     return Column(children: [
-      CustomIconButton(
-          height: 38.adaptSize,
-          width: 38.adaptSize,
-          padding: EdgeInsets.all(7.h),
-          child: CustomImageView(imagePath: ImageConstant.imgBookmark)),
+      CustomIconButton(height: 38.adaptSize, width: 38.adaptSize, padding: EdgeInsets.all(7.h), child: CustomImageView(imagePath: ImageConstant.imgBookmark)),
       SizedBox(height: 12.v),
       Text("lbl_renaissance".tr, style: theme.textTheme.headlineMedium),
       SizedBox(height: 6.v),
@@ -66,14 +54,8 @@ class ArtistScreen extends GetWidget<ArtistController> {
                 height: 3.adaptSize,
                 width: 3.adaptSize,
                 margin: EdgeInsets.only(left: 4.h, top: 9.v, bottom: 6.v),
-                decoration: BoxDecoration(
-                    color:
-                        theme.colorScheme.onPrimaryContainer.withOpacity(0.58),
-                    borderRadius: BorderRadius.circular(1.h)))),
-        Padding(
-            padding: EdgeInsets.only(left: 5.h),
-            child: Text("lbl_23_albums".tr,
-                style: CustomTextStyles.bodyLargeBluegray400))
+                decoration: BoxDecoration(color: theme.colorScheme.onPrimaryContainer.withOpacity(0.58), borderRadius: BorderRadius.circular(1.h)))),
+        Padding(padding: EdgeInsets.only(left: 5.h), child: Text("lbl_23_albums".tr, style: CustomTextStyles.bodyLargeBluegray400))
       ])
     ]);
   }
@@ -88,11 +70,9 @@ class ArtistScreen extends GetWidget<ArtistController> {
                 separatorBuilder: (context, index) {
                   return SizedBox(width: 24.h);
                 },
-                itemCount: controller
-                    .artistModelObj.value.renaissancelistItemList.value.length,
+                itemCount: controller.artistModelObj.value.renaissancelistItemList.value.length,
                 itemBuilder: (context, index) {
-                  RenaissancelistItemModel model = controller.artistModelObj
-                      .value.renaissancelistItemList.value[index];
+                  RenaissancelistItemModel model = controller.artistModelObj.value.renaissancelistItemList.value[index];
                   return RenaissancelistItemWidget(model, onTapUrgentSiege: () {
                     onTapUrgentSiege();
                   });

@@ -21,13 +21,7 @@ class AlbumDetailsScreen extends GetWidget<AlbumDetailsController> {
             body: Container(
                 width: double.maxFinite,
                 padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 14.v),
-                child: Column(children: [
-                  _buildSongDetail(),
-                  SizedBox(height: 31.v),
-                  _buildActions(),
-                  SizedBox(height: 29.v),
-                  _buildSongsList()
-                ]))));
+                child: Column(children: [_buildSongDetail(), SizedBox(height: 31.v), _buildActions(), SizedBox(height: 29.v), _buildSongsList()]))));
   }
 
   /// Section Widget
@@ -43,44 +37,27 @@ class AlbumDetailsScreen extends GetWidget<AlbumDetailsController> {
             }),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_wunder_king".tr),
-        actions: [
-          AppbarTrailingImage(
-              imagePath: ImageConstant.imgMenu,
-              margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))
-        ]);
+        actions: [AppBarTrailingImage(imagePath: ImageConstant.imgMenu, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))]);
   }
 
   /// Section Widget
   Widget _buildSongDetail() {
     return Column(children: [
-      CustomImageView(
-          imagePath: ImageConstant.imgThumbnail100x100,
-          height: 100.adaptSize,
-          width: 100.adaptSize),
+      CustomImageView(imagePath: ImageConstant.imgThumbnail100x100, height: 100.adaptSize, width: 100.adaptSize),
       SizedBox(height: 30.v),
       Text("lbl_wunder_king".tr, style: theme.textTheme.headlineMedium),
       SizedBox(height: 7.v),
-      Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Padding(
-                padding: EdgeInsets.only(top: 1.v),
-                child: Text("lbl".tr, style: theme.textTheme.bodyLarge)),
-            Opacity(
-                opacity: 0.648,
-                child: Container(
-                    height: 3.adaptSize,
-                    width: 3.adaptSize,
-                    margin: EdgeInsets.only(left: 8.h, top: 9.v, bottom: 7.v),
-                    decoration: BoxDecoration(
-                        color: theme.colorScheme.onPrimaryContainer
-                            .withOpacity(0.58),
-                        borderRadius: BorderRadius.circular(1.h)))),
-            Padding(
-                padding: EdgeInsets.only(left: 8.h),
-                child: Text("lbl_2018".tr, style: theme.textTheme.bodyLarge))
-          ])
+      Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.end, children: [
+        Padding(padding: EdgeInsets.only(top: 1.v), child: Text("lbl".tr, style: theme.textTheme.bodyLarge)),
+        Opacity(
+            opacity: 0.648,
+            child: Container(
+                height: 3.adaptSize,
+                width: 3.adaptSize,
+                margin: EdgeInsets.only(left: 8.h, top: 9.v, bottom: 7.v),
+                decoration: BoxDecoration(color: theme.colorScheme.onPrimaryContainer.withOpacity(0.58), borderRadius: BorderRadius.circular(1.h)))),
+        Padding(padding: EdgeInsets.only(left: 8.h), child: Text("lbl_2018".tr, style: theme.textTheme.bodyLarge))
+      ])
     ]);
   }
 
@@ -95,11 +72,7 @@ class AlbumDetailsScreen extends GetWidget<AlbumDetailsController> {
               padding: EdgeInsets.all(8.h),
               decoration: IconButtonStyleHelper.fillOnPrimaryContainerTL19,
               child: CustomImageView(imagePath: ImageConstant.imgReply))),
-      CustomImageView(
-          imagePath: ImageConstant.imgPlayOnprimarycontainer,
-          height: 69.adaptSize,
-          width: 69.adaptSize,
-          margin: EdgeInsets.only(left: 26.h)),
+      CustomImageView(imagePath: ImageConstant.imgPlayOnprimarycontainer, height: 69.adaptSize, width: 69.adaptSize, margin: EdgeInsets.only(left: 26.h)),
       Padding(
           padding: EdgeInsets.only(left: 26.h, top: 16.v, bottom: 15.v),
           child: CustomIconButton(
@@ -107,8 +80,7 @@ class AlbumDetailsScreen extends GetWidget<AlbumDetailsController> {
               width: 38.adaptSize,
               padding: EdgeInsets.all(7.h),
               decoration: IconButtonStyleHelper.fillOnPrimaryContainerTL19,
-              child: CustomImageView(
-                  imagePath: ImageConstant.imgBookmarkOnprimarycontainer)))
+              child: CustomImageView(imagePath: ImageConstant.imgBookmarkOnprimarycontainer)))
     ]);
   }
 
@@ -120,11 +92,9 @@ class AlbumDetailsScreen extends GetWidget<AlbumDetailsController> {
         separatorBuilder: (context, index) {
           return SizedBox(height: 19.v);
         },
-        itemCount: controller
-            .albumDetailsModelObj.value.songslistItemList.value.length,
+        itemCount: controller.albumDetailsModelObj.value.songslistItemList.value.length,
         itemBuilder: (context, index) {
-          SongslistItemModel model = controller
-              .albumDetailsModelObj.value.songslistItemList.value[index];
+          SongslistItemModel model = controller.albumDetailsModelObj.value.songslistItemList.value[index];
           return SongslistItemWidget(model);
         }));
   }

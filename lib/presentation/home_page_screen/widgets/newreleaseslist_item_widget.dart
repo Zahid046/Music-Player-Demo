@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:zahid_mahmud_s_application1/core/app_export.dart';
 
 // ignore: must_be_immutable
-class NewreleaseslistItemWidget extends StatelessWidget {
-  NewreleaseslistItemWidget(
-    this.newreleaseslistItemModelObj, {
+class NewReleasesListItemWidget extends StatelessWidget {
+  NewReleasesListItemWidget(
+    this.newReleasesListItemModelObj, {
     Key? key,
   }) : super(
           key: key,
         );
 
-  NewreleaseslistItemModel newreleaseslistItemModelObj;
+  NewReleasesListItemModel newReleasesListItemModelObj;
 
   var controller = Get.find<HomePageController>();
 
@@ -25,7 +25,7 @@ class NewreleaseslistItemWidget extends StatelessWidget {
         children: [
           Obx(
             () => CustomImageView(
-              imagePath: newreleaseslistItemModelObj.urgentSiege!.value,
+              imagePath: newReleasesListItemModelObj.urgentSiege!.value,
               height: 181.v,
               width: 159.h,
               radius: BorderRadius.circular(
@@ -36,14 +36,14 @@ class NewreleaseslistItemWidget extends StatelessWidget {
           SizedBox(height: 8.v),
           Obx(
             () => Text(
-              newreleaseslistItemModelObj.urgentSiege1!.value,
+              newReleasesListItemModelObj.urgentSiege1!.value,
               style: theme.textTheme.titleMedium,
             ),
           ),
           SizedBox(height: 2.v),
           Obx(
             () => Text(
-              newreleaseslistItemModelObj.damnedAnthem!.value,
+              newReleasesListItemModelObj.damnedAnthem!.value,
               style: CustomTextStyles.bodyMediumOnPrimaryContainer,
             ),
           ),

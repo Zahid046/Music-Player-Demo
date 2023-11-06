@@ -25,11 +25,9 @@ class AlbumsScreen extends GetWidget<AlbumsController> {
                     separatorBuilder: (context, index) {
                       return SizedBox(height: 16.v);
                     },
-                    itemCount: controller
-                        .albumsModelObj.value.albumsItemList.value.length,
+                    itemCount: controller.albumsModelObj.value.albumsItemList.value.length,
                     itemBuilder: (context, index) {
-                      AlbumsItemModel model = controller
-                          .albumsModelObj.value.albumsItemList.value[index];
+                      AlbumsItemModel model = controller.albumsModelObj.value.albumsItemList.value[index];
                       return AlbumsItemWidget(model, onTapAlbum: () {
                         onTapAlbum();
                       });
@@ -48,11 +46,7 @@ class AlbumsScreen extends GetWidget<AlbumsController> {
             }),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_albums".tr),
-        actions: [
-          AppbarTrailingImage(
-              imagePath: ImageConstant.imgMenu,
-              margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 13.v))
-        ]);
+        actions: [AppBarTrailingImage(imagePath: ImageConstant.imgMenu, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 13.v))]);
   }
 
   /// Navigates to the loginScreen when the action is triggered.

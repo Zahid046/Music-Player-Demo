@@ -25,11 +25,9 @@ class ArtistsScreen extends GetWidget<ArtistsController> {
                     separatorBuilder: (context, index) {
                       return SizedBox(height: 16.v);
                     },
-                    itemCount: controller
-                        .artistsModelObj.value.artistsItemList.value.length,
+                    itemCount: controller.artistsModelObj.value.artistsItemList.value.length,
                     itemBuilder: (context, index) {
-                      ArtistsItemModel model = controller
-                          .artistsModelObj.value.artistsItemList.value[index];
+                      ArtistsItemModel model = controller.artistsModelObj.value.artistsItemList.value[index];
                       return ArtistsItemWidget(model);
                     })))));
   }
@@ -46,11 +44,7 @@ class ArtistsScreen extends GetWidget<ArtistsController> {
             }),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_artists".tr),
-        actions: [
-          AppbarTrailingImage(
-              imagePath: ImageConstant.imgMenu,
-              margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 13.v))
-        ]);
+        actions: [AppBarTrailingImage(imagePath: ImageConstant.imgMenu, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 13.v))]);
   }
 
   /// Navigates to the previous screen.

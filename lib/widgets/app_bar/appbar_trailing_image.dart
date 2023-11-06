@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:zahid_mahmud_s_application1/core/app_export.dart';
 
 // ignore: must_be_immutable
-class AppbarTrailingImage extends StatelessWidget {
-  AppbarTrailingImage({
+class AppBarTrailingImage extends StatelessWidget {
+  AppBarTrailingImage({
     Key? key,
     this.imagePath,
     this.margin,

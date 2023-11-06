@@ -20,48 +20,24 @@ class SettingsScreen extends GetWidget<SettingsController> {
             body: Container(
                 width: double.maxFinite,
                 padding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 19.v),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildEqualizer(),
-                      SizedBox(height: 35.v),
-                      Padding(
-                          padding: EdgeInsets.only(left: 4.h),
-                          child: Text("lbl_my_settings".tr,
-                              style: theme.textTheme.bodyLarge)),
-                      SizedBox(height: 25.v),
-                      Padding(
-                          padding: EdgeInsets.only(left: 4.h),
-                          child: Text("lbl_default".tr,
-                              style: theme.textTheme.bodyLarge)),
-                      SizedBox(height: 26.v),
-                      Padding(
-                          padding: EdgeInsets.only(left: 4.h),
-                          child: Text("lbl_club_music".tr,
-                              style: CustomTextStyles
-                                  .bodyLargeSecondaryContainer)),
-                      SizedBox(height: 26.v),
-                      Padding(
-                          padding: EdgeInsets.only(left: 4.h),
-                          child: Text("lbl_classical_music".tr,
-                              style: theme.textTheme.bodyLarge)),
-                      SizedBox(height: 26.v),
-                      Padding(
-                          padding: EdgeInsets.only(left: 4.h),
-                          child: Text("lbl_dance_music".tr,
-                              style: theme.textTheme.bodyLarge)),
-                      SizedBox(height: 27.v),
-                      Padding(
-                          padding: EdgeInsets.only(left: 4.h),
-                          child: Text("msg_low_frequency_gain".tr,
-                              style: theme.textTheme.bodyLarge)),
-                      SizedBox(height: 27.v),
-                      Padding(
-                          padding: EdgeInsets.only(left: 4.h),
-                          child: Text("msg_low_frequency_gain".tr,
-                              style: theme.textTheme.bodyLarge)),
-                      SizedBox(height: 5.v)
-                    ]))));
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  _buildEqualizer(),
+                  SizedBox(height: 35.v),
+                  Padding(padding: EdgeInsets.only(left: 4.h), child: Text("lbl_my_settings".tr, style: theme.textTheme.bodyLarge)),
+                  SizedBox(height: 25.v),
+                  Padding(padding: EdgeInsets.only(left: 4.h), child: Text("lbl_default".tr, style: theme.textTheme.bodyLarge)),
+                  SizedBox(height: 26.v),
+                  Padding(padding: EdgeInsets.only(left: 4.h), child: Text("lbl_club_music".tr, style: CustomTextStyles.bodyLargeSecondaryContainer)),
+                  SizedBox(height: 26.v),
+                  Padding(padding: EdgeInsets.only(left: 4.h), child: Text("lbl_classical_music".tr, style: theme.textTheme.bodyLarge)),
+                  SizedBox(height: 26.v),
+                  Padding(padding: EdgeInsets.only(left: 4.h), child: Text("lbl_dance_music".tr, style: theme.textTheme.bodyLarge)),
+                  SizedBox(height: 27.v),
+                  Padding(padding: EdgeInsets.only(left: 4.h), child: Text("msg_low_frequency_gain".tr, style: theme.textTheme.bodyLarge)),
+                  SizedBox(height: 27.v),
+                  Padding(padding: EdgeInsets.only(left: 4.h), child: Text("msg_low_frequency_gain".tr, style: theme.textTheme.bodyLarge)),
+                  SizedBox(height: 5.v)
+                ]))));
   }
 
   /// Section Widget
@@ -77,11 +53,7 @@ class SettingsScreen extends GetWidget<SettingsController> {
             }),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_equalizer".tr),
-        actions: [
-          AppbarTrailingImage(
-              imagePath: ImageConstant.imgClose,
-              margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))
-        ]);
+        actions: [AppBarTrailingImage(imagePath: ImageConstant.imgClose, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))]);
   }
 
   /// Section Widget
@@ -94,11 +66,9 @@ class SettingsScreen extends GetWidget<SettingsController> {
             separatorBuilder: (context, index) {
               return SizedBox(width: 23.h);
             },
-            itemCount: controller
-                .settingsModelObj.value.equalizerItemList.value.length,
+            itemCount: controller.settingsModelObj.value.equalizerItemList.value.length,
             itemBuilder: (context, index) {
-              EqualizerItemModel model = controller
-                  .settingsModelObj.value.equalizerItemList.value[index];
+              EqualizerItemModel model = controller.settingsModelObj.value.equalizerItemList.value[index];
               return EqualizerItemWidget(model);
             })));
   }

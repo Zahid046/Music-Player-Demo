@@ -4,7 +4,6 @@ import 'models/topplaylist_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:zahid_mahmud_s_application1/core/app_export.dart';
 import 'package:zahid_mahmud_s_application1/presentation/favorites_screen/favorites_screen.dart';
-import 'package:zahid_mahmud_s_application1/presentation/top_playlists_screen/top_playlists_screen.dart';
 import 'package:zahid_mahmud_s_application1/widgets/app_bar/appbar_leading_image.dart';
 import 'package:zahid_mahmud_s_application1/widgets/app_bar/appbar_title.dart';
 import 'package:zahid_mahmud_s_application1/widgets/app_bar/appbar_trailing_image.dart';
@@ -20,10 +19,7 @@ class TopPlaylistsScreen extends GetWidget<TopPlaylistsController> {
     return SafeArea(
         child: Scaffold(
             appBar: _buildAppBar(),
-            body: SizedBox(
-                width: double.maxFinite,
-                child: Column(
-                    children: [SizedBox(height: 20.v), _buildTopPlaylist()])),
+            body: SizedBox(width: double.maxFinite, child: Column(children: [SizedBox(height: 20.v), _buildTopPlaylist()])),
             bottomNavigationBar: _buildBottomBar()));
   }
 
@@ -40,11 +36,7 @@ class TopPlaylistsScreen extends GetWidget<TopPlaylistsController> {
             }),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_top_playlists".tr),
-        actions: [
-          AppbarTrailingImage(
-              imagePath: ImageConstant.imgMenu,
-              margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))
-        ]);
+        actions: [AppBarTrailingImage(imagePath: ImageConstant.imgMenu, margin: EdgeInsets.fromLTRB(24.h, 14.v, 24.h, 15.v))]);
   }
 
   /// Section Widget
@@ -58,11 +50,9 @@ class TopPlaylistsScreen extends GetWidget<TopPlaylistsController> {
                 separatorBuilder: (context, index) {
                   return SizedBox(height: 24.v);
                 },
-                itemCount: controller.topPlaylistsModelObj.value
-                    .topplaylistItemList.value.length,
+                itemCount: controller.topPlaylistsModelObj.value.topplaylistItemList.value.length,
                 itemBuilder: (context, index) {
-                  TopplaylistItemModel model = controller.topPlaylistsModelObj
-                      .value.topplaylistItemList.value[index];
+                  TopplaylistItemModel model = controller.topPlaylistsModelObj.value.topplaylistItemList.value[index];
                   return TopplaylistItemWidget(model, onTapImgRenaissance: () {
                     onTapImgRenaissance();
                   });

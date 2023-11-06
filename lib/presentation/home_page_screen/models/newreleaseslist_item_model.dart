@@ -1,8 +1,7 @@
 import '../../../core/app_export.dart';
 
-/// This class is used in the [newreleaseslist_item_widget] screen.
-class NewreleaseslistItemModel {
-  NewreleaseslistItemModel({
+class NewReleasesListItemModel {
+  NewReleasesListItemModel({
     this.urgentSiege,
     this.urgentSiege1,
     this.damnedAnthem,
