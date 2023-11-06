@@ -105,19 +105,26 @@ class FavoritesScreen extends GetWidget<FavoritesController> {
   /// Section Widget
   Widget _buildFavorites() {
     return Expanded(
-        child: Obx(() => ListView.separated(
-            physics: BouncingScrollPhysics(),
-            shrinkWrap: true,
-            separatorBuilder: (context, index) {
-              return SizedBox(height: 8.v);
-            },
-            itemCount: controller.favoritesModelObj.value.favoritesItemList.value.length,
-            itemBuilder: (context, index) {
-              FavoritesItemModel model = controller.favoritesModelObj.value.favoritesItemList.value[index];
-              return FavoritesItemWidget(model, onTapFavouritesOption: () {
-                onTapFavouritesOption();
-              });
-            })));
+      child: Obx(
+        () => ListView.separated(
+          physics: BouncingScrollPhysics(),
+          shrinkWrap: true,
+          separatorBuilder: (context, index) {
+            return SizedBox(height: 8.v);
+          },
+          itemCount: controller.favoritesModelObj.value.favoritesItemList.value.length,
+          itemBuilder: (context, index) {
+            FavoritesItemModel model = controller.favoritesModelObj.value.favoritesItemList.value[index];
+            return FavoritesItemWidget(
+              model,
+              onTapFavoritesOption: () {
+                onTapFavoritesOption();
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 
   /// Section Widget
@@ -156,7 +163,7 @@ class FavoritesScreen extends GetWidget<FavoritesController> {
   }
 
   /// Navigates to the artistsScreen when the action is triggered.
-  onTapFavouritesOption() {
+  onTapFavoritesOption() {
     Get.toNamed(AppRoutes.artistsScreen);
   }
 

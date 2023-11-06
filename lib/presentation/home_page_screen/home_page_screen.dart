@@ -159,6 +159,7 @@ class HomePageScreen extends GetWidget<HomePageController> {
         ),
       ),
       isScrollControlled: true,
+      backgroundColor: PrimaryColors().black900,
     );
   }
 }

@@ -8,7 +8,7 @@ class FavoritesItemWidget extends StatelessWidget {
   FavoritesItemWidget(
     this.favoritesItemModelObj, {
     Key? key,
-    this.onTapFavouritesOption,
+    this.onTapFavoritesOption,
   }) : super(
           key: key,
         );
@@ -17,13 +17,13 @@ class FavoritesItemWidget extends StatelessWidget {
 
   var controller = Get.find<FavoritesController>();
 
-  VoidCallback? onTapFavouritesOption;
+  VoidCallback? onTapFavoritesOption;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onTapFavouritesOption!.call();
+        onTapFavoritesOption!.call();
       },
       child: Container(
         padding: EdgeInsets.symmetric(

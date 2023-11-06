@@ -24,8 +24,8 @@ class PlaylistItemWidget extends StatelessWidget {
         Obx(
           () => CustomImageView(
             imagePath: playlistItemModelObj.flashbacks!.value,
-            height: 59.v,
-            width: 60.h,
+            height: 60.v,
+            width: 60.v,
             radius: BorderRadius.circular(
               30.h,
             ),

@@ -4,6 +4,7 @@ import 'models/playlist_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:zahid_mahmud_s_application1/core/app_export.dart';
 
+// ignore: must_be_immutable
 class PlayListBottomSheet extends StatelessWidget {
   PlayListBottomSheet(
     this.controller, {

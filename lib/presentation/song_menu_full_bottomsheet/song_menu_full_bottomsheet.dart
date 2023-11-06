@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:zahid_mahmud_s_application1/core/app_export.dart';
 import 'package:zahid_mahmud_s_application1/widgets/custom_icon_button.dart';
 
-class SongMenuFullBottomsheet extends StatelessWidget {
-  SongMenuFullBottomsheet(
+// ignore: must_be_immutable
+class SongMenuFullBottomSheet extends StatelessWidget {
+  SongMenuFullBottomSheet(
     this.controller, {
     Key? key,
   }) : super(
