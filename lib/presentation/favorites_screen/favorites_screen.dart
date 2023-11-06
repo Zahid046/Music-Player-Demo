@@ -144,7 +144,7 @@ class FavoritesScreen extends GetWidget<FavoritesController> {
       case BottomBarEnum.Favorites:
         return AppRoutes.favoritesScreen;
       case BottomBarEnum.Search:
-        return "/";
+        return AppRoutes.settingsScreen;
       default:
         return "/";
     }
